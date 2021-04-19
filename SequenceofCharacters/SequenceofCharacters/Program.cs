@@ -11,29 +11,21 @@ namespace SequenceofCharacters
         }
         static int NumOfIndecticalChar(string text)
         {
-            //string text = "12da1222hfyerudk"; //"sssdeefghrr";
             int counter = 1;
             int maxSequence = 1;
-            int j = 0;
-            for (int i = 0; i < text.Length; i++)
+            for (int index = 0; index < text.Length; index++)
             {
-                j++;
-                while (j < text.Length)
+                if (text[index] != text[index + 1])
                 {
-                    if (text[i] != text[j])
+                    counter++;
+                    if (counter >= maxSequence)
                     {
-                        counter++;
-                        if (counter >= maxSequence)
-                        {
-                            maxSequence = counter;
-                        }
-                        break;
+                        maxSequence = counter;
                     }
-                    else
-                    {
-                        counter = 1;
-                        break;
-                    }
+                }
+                else
+                {
+                    counter = 1;
                 }
             }
             return maxSequence;
