@@ -37,7 +37,7 @@ namespace OOP
 
         static bool CheckAuthentification(Credentials creds)
         {
-            //Data base
+            //DataBase
             Credentials[] dbCredentials = GetCredentialsFromDB();
             foreach (Credentials credData in dbCredentials)
             {
