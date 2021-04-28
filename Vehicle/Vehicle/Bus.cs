@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vehicle
 {
-    class Bus: Vehicle
+    class Bus: Vehicle, IRefuelable
     {
         public int NumOfPassengerSeates { get; }
 
@@ -18,6 +18,10 @@ namespace Vehicle
         {
             return $"Bus: Engine volume = {EngineVolume}, transmission: {Transmission}, Max speed = {MaxSpeed}, " +
                 $"Number of passenger seates = {NumOfPassengerSeates}";
+        }
+        public override void Refuel()
+        {
+            Console.Write("Bus fueled");
         }
     }
 }

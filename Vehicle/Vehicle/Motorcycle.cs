@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vehicle
 {
-    class Motorcycle : Vehicle
+    class Motorcycle : Vehicle, IRefuelable
     {
         public string TypeOfMotorcycle { get; }
 
@@ -18,6 +18,10 @@ namespace Vehicle
         {
             return $"Motorcycle: Engine volume = {EngineVolume}, transmission: {Transmission}, Max speed = {MaxSpeed}, " +
                 $"Type of motorcycle = {TypeOfMotorcycle}";
+        }
+        public override void Refuel()
+        {
+            Console.Write("Motorcycle not refueled");
         }
     }
 }

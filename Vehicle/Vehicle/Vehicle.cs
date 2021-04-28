@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vehicle
 {
-    abstract class Vehicle
+    abstract class Vehicle: IRefuelable
     {
         public double EngineVolume { get; }
         public string Transmission { get; }
@@ -21,6 +21,7 @@ namespace Vehicle
         {
             return $"Engine volume = {EngineVolume}, transmission: {Transmission}, Max speed = {MaxSpeed}, ";
         }
+        public abstract void Refuel();
   
     }
 }
