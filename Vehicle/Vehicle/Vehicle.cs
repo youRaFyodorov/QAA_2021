@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vehicle
 {
-    abstract class Vehicle: IRefuelable
+    abstract class Vehicle
     {
         public double EngineVolume { get; }
         public string Transmission { get; }
