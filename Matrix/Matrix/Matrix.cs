@@ -4,21 +4,18 @@ using System.Text;
 
 namespace Matrix
 {
-    class Matrix
+    class Matrix<T>
     {
-        public int SizeOfMatrix { get; }
-        public int [] array;
-        
-        public Matrix (int size)
-        {   
+        public int SizeOfMatrix { get; set; }
+        public T[] array;
+
+        public Matrix(int size)
+        {
             SizeOfMatrix = size;
-            array = new int[size * size];
-            for (int i = 0; i < size*size; i++)
-            {
-                array[i] = 0;
-            }
-        } 
-        public virtual int this[int index, int jndex]
+            int lengthOfMassive = SizeOfMatrix * SizeOfMatrix;
+            array = new T[lengthOfMassive];
+        }
+        public virtual T this[int index, int jndex]
         {
             get
             {
@@ -29,16 +26,6 @@ namespace Matrix
                 array[index * SizeOfMatrix + jndex] = value;
             }
         }
-        public void SquareMatrix()
-        {
-           for (int i = 0; i < SizeOfMatrix; i++)
-           {
-                for (int j = 0; j < SizeOfMatrix; j++)
-                {
-                    this[i, j] = j + 5;
-                }
-           }
-        }
         public void PrintMatrix()
         {
             for (int i = 0; i < SizeOfMatrix; i++)
@@ -46,10 +33,23 @@ namespace Matrix
                 for (int j = 0; j < SizeOfMatrix; j++)
                 {
                     Console.Write(this[i, j] + " ");
-                    
                 }
                 Console.Write("\n");
             }
+        }
+        public override string ToString()
+        {
+            StringBuilder matrixString = new StringBuilder();
+            for (int i = 0; i < SizeOfMatrix; i++)
+            {
+                for (int j = 0; j < SizeOfMatrix; j++)
+                {
+                    matrixString.Append(this[i, j]);
+                    matrixString.Append(" ");
+                }
+                matrixString.Append("\n");
+            }
+            return matrixString.ToString();
         }
     }
 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Matrix
 {
-    class DiagonalMatrix: Matrix
+    class DiagonalMatrix<T> : Matrix<T>
     {
-        public override int this[int index, int jndex]
+        public override T this[int index, int jndex]
         {
             get
             {
@@ -14,19 +14,20 @@ namespace Matrix
                 {
                     return array[index];
                 }
-                else return 0;
+                else return default(T);
             }
             set
             {
                 if (index == jndex)
                 {
-                    array[index] = value;   
+                    array[index] = value;
                 }
             }
         }
-        public DiagonalMatrix (int size): base (size)
+        public DiagonalMatrix(int size) : base(size)
         {
-            array = new int[size];
+            SizeOfMatrix = size;
+            array = new T[size];
         }
     }
 }

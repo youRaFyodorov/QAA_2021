@@ -9,14 +9,23 @@ namespace Matrix
             try
             {
                 int size = 5;
-                Matrix matrix = new Matrix(size);
-                matrix.SquareMatrix();
-                matrix.PrintMatrix();
+                Matrix<int> matrix = new Matrix<int>(size);
+                Random rnd = new Random();
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        matrix[i, j] = rnd.Next(0, 100) ;
+                    }
+                }
 
-                DiagonalMatrix diagonalMatrix = new DiagonalMatrix(size);
-                diagonalMatrix.SquareMatrix();
-                Console.WriteLine();
-                diagonalMatrix.PrintMatrix();
+                Console.WriteLine(matrix.ToString());
+                DiagonalMatrix<int> diagonalMatrix = new DiagonalMatrix<int>(size);
+                for (int i = 0; i < size; i++)
+                {
+                    diagonalMatrix[i, i] = rnd.Next(0, 10);
+                }
+                Console.WriteLine(diagonalMatrix.ToString());
             }
             catch (OverflowException ex)
             {
